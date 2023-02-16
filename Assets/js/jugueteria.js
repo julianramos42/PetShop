@@ -1,4 +1,4 @@
-import { getData, createCards, filterProducts, writeSponsors, createCarru, replaceModal } from "./module/functions.js";
+import { getData, createCards, filterProducts, writeSponsors, createCarru } from "./module/functions.js";
 
 const container = document.getElementById("card-container")
 const searchBar = document.getElementById("search-bar")
@@ -32,15 +32,8 @@ data.then((response) => {
                         pressToy.disponibles--
                         toys[i] = pressToy
                         localStorage.setItem("toys", JSON.stringify(toys))
-
-                        let modalContainer = document.getElementById("card-container")
-                        let modals = Array.from(document.getElementById("card-container").children)
-                        let modalToChange = modals.filter( (child) => child.className.includes("show") )
-                        let newModal = replaceModal(pressToy)
-                        let modalIndex = modals.indexOf(modalToChange[0])
-                        console.log(modals[modalIndex])
-                        modals[modalIndex].innerHTML = newModal
-                        console.log(modals[modalIndex])
+                        let unidades = document.getElementById(`unidades-${pressToy._id}`)
+                        unidades.textContent = `${pressToy.disponibles} unidades`
                     }
                 }
             }
@@ -71,8 +64,8 @@ let array2 = ["dog.jpg", "pexels-adam-kontor-333083.jpg", "pexels-kat-smith-5516
 createCarru(array2, slide)
 
 
-// PARA BORRAR ITEMS DEL CARRITO
 
+// PARA BORRAR ITEMS DEL CARRITO
 // if( products.some( product => product._id == e.target.id) ){
 //     products = products.filter( (product) => product._id != e.target.id)
 //     localStorage.setItem("products", JSON.stringify(products))

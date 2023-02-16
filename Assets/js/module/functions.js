@@ -44,9 +44,9 @@ function writeCard(element) {
       </div>
     </div>
 
-    <div class="modal fade" id="${element._id}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade modal-container" id="${element._id}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content w-100 mx-auto" id="modal-container-${element._id}">
+        <div class="modal-content w-100 mx-auto">
           <div class="modal-body d-flex justify-content-center gap-3">
             <div class="card" style="width: 25rem;">
               <div>
@@ -60,7 +60,7 @@ function writeCard(element) {
                   <h5 >${element.producto}</h5>
                 </div>
                 <div class="cont-unidad d-flex justify-content-end align-items-end">
-                  <p>${element.disponibles} Unidades</p>
+                  <p id="unidades-${element._id}">${element.disponibles} Unidades</p>
                 </div>
               </div>
             </div>
@@ -72,40 +72,6 @@ function writeCard(element) {
         </div>
       </div>
     </div>
-  `
-}
-
-export function replaceModal(element) {
-  let color = element.disponibles < 5 ? "red" : "green";
-  return `
-  <div class="modal fade show" id="${element._id}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-modal="true" role="dialog" style="display: block;">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content w-100 mx-auto" id="modal-container-${element._id}">
-      <div class="modal-body d-flex justify-content-center gap-3">
-        <div class="card" style="width: 25rem;">
-          <div>
-            <img src="${element.imagen}" class="card-img-top tam_img_card" alt="${element.producto}">
-            <button class="favorite-btn"><img src="../img/heart.png" class="img-heart" alt="heart"></button>
-          </div>
-          <div class="card-body">
-            <div class="cont-stock d-flex flex-column">
-              <p class="card-text"><b>Precio: $${element.precio}</b></p>
-              <p class="${color} text-center stock"><b>Stock</b></p>
-              <h5>${element.producto}</h5>
-            </div>
-            <div class="cont-unidad d-flex justify-content-end align-items-end">
-              <p>${element.disponibles} Unidades</p>
-            </div>
-          </div>
-        </div>
-        <div class="d-flex flex-column justify-content-center" style="width: 25rem;">
-          <p>${element.descripcion}</p>
-          <button type="button" class="btn btn-primary" id="${element._id}">Agregar Al Carrito</button>
-        </div>      
-      </div>
-    </div>
-  </div>
-</div>
   `
 }
 
