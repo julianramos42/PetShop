@@ -86,9 +86,6 @@ export function createCarru(list, container){
                       <div class="carousel-item">
                         <img src="../img/${list[3]}" class="d-block w-100 border1" alt="${list[3]}">
                       </div>
-                      <div class="carousel-item">
-                        <img src="../img/${list[4]}" class="d-block w-100 border1" alt="${list[4]}">
-                      </div>
                     </div>
     `
   
@@ -108,9 +105,6 @@ export function createCarruHome(list, container){
                       </div>
                       <div class="carousel-item">
                         <img src="./Assets/img/${list[3]}" class="d-block w-100 border1" alt="${list[3]}">
-                      </div>
-                      <div class="carousel-item">
-                        <img src="./Assets/img/${list[4]}" class="d-block w-100 border1" alt="${list[4]}">
                       </div>
                     </div>
   `
