@@ -51,7 +51,6 @@ function writeCard(element) {
             <div class="card" style="width: 25rem;">
               <div>
                 <img src="${element.imagen}"class="card-img-top tam_img_card" alt="${element.producto}">
-                <button class="favorite-btn"><img src="../img/heart.png" class="img-heart" alt="heart"></button>
               </div>
               <div class="card-body">
                 <div class="cont-stock d-flex flex-column">
@@ -178,9 +177,13 @@ export function createShopping(list,container,precioTotal=0){
   container.innerHTML = template
 }
 
-export function orderProducts(array){
-  for (const [indice, objeto] of array.entries()) {
-    objeto.indice = indice;
-  }
+export function fillHeart(toys,favoritos,btn){
+  toys.forEach(toy => {
+    favoritos.forEach(fav => {
+        if(toy._id == fav._id){
+            let asd = Array.from(btn).filter(e => e.firstElementChild.children[0].id == toy.producto)
+            asd[0].children[0].children[0].classList.replace("black", "redPath")
+        }
+    })
+})
 }
-
