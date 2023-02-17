@@ -14,7 +14,7 @@ let favoritos = JSON.parse(localStorage.getItem("favoritos")) || []
 localStorage.setItem("products", JSON.stringify(products))
 
 let precioTotal = 0
-createShopping(products,shopping)
+createShopping(products,shopping,precioTotal,true)
 
 let toys = JSON.parse(localStorage.getItem("toys")) || [] // toma el value de la key "toys" en el localStorage y lo guarda en la variable toys
 let pharmacyProducts = JSON.parse(localStorage.getItem("pharmacyProducts")) || []
@@ -82,7 +82,7 @@ container.addEventListener("click", (e) => {
 carrito.addEventListener("click", (e) => {
     precioTotal = 0
     products.forEach(product => precioTotal += product.precio)
-    createShopping(products,shopping,precioTotal) // actualiza el modal del carrito
+    createShopping(products,shopping,precioTotal,true) // actualiza el modal del carrito
 
     modalCarrito.addEventListener("click", (e) => {
         if (e.target.className.includes("garbage")) {
@@ -103,7 +103,7 @@ carrito.addEventListener("click", (e) => {
 
             precioTotal = 0
             products.forEach(product => precioTotal += product.precio)
-            createShopping(products,shopping,precioTotal) 
+            createShopping(products,shopping,precioTotal,true) 
 
         }else if(e.target.id == "eliminar"){
             cartProducts.forEach(cartProduct => {
@@ -118,13 +118,13 @@ carrito.addEventListener("click", (e) => {
             products = []
             localStorage.setItem("products", JSON.stringify(products))
             precioTotal = 0
-            createShopping(products,shopping,precioTotal)
+            createShopping(products,shopping,precioTotal,true)
 
         }else if(e.target.id == "comprar"){
             products = []
             localStorage.setItem("products", JSON.stringify(products))
             precioTotal = 0
-            createShopping(products,shopping,precioTotal)
+            createShopping(products,shopping,precioTotal,true)
             Swal.fire({
                 position: 'center',
                 icon: 'success',
