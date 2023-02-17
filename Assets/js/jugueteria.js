@@ -67,7 +67,6 @@ carrito.addEventListener("click", (e) => {
                     let finalProduct = products.find( product => product._id == toy._id)           
                     let position = products.findIndex( product => product == finalProduct )         
                     products.splice(position,1)
-                    console.log(products)
                     localStorage.setItem("products", JSON.stringify(products))
 
                     toy.disponibles++

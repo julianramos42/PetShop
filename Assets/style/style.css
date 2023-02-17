@@ -330,6 +330,8 @@ footer{
     width: 25px;
 }
 
+
+/* CONTACTO */
 .contenedor-padre{
      display: flex;
      justify-content: center;
@@ -399,6 +401,8 @@ footer{
     padding: 2rem;
  }
 
+/* CARRITO */
+
  .img-cart{
     width: 6rem;
     
@@ -456,6 +460,7 @@ footer{
     display: flex;
     gap: 1rem;
 }
+/**/
 
  @media only screen and (max-width: 767px){
     header>div .navbar {

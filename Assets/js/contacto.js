@@ -4,7 +4,7 @@ form.addEventListener("submit", (e) => {
     Swal.fire({
         position: 'center',
         icon: 'success',
-        title: 'Your work has been saved',
+        title: 'Mensaje Enviado',
         showConfirmButton: false,
         timer: 1500
       })
