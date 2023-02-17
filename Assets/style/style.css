@@ -6,41 +6,52 @@
 
 header{
     background-color: #eeecec;
-    height: 8vh;
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    gap: 10px;
+    flex-wrap: wrap;
 }
 .cont-logo{
-    width: 20%;
-    height: 100%;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    
+    align-content: center;
 }
-.cont-logo>a{
+header div a{
     text-decoration: none;
-    color: black;
-    width: 12rem;
     display: flex;
-    gap: .5rem;
+    align-items: center;
 }
-
-.cont-logo>a>b{
-    font-size: 2rem;
+.ancorActive{
+    border-bottom: 4px solid orange;
+    border-radius: 2px;
+    padding: 8px;
 }
-
+header div a b{
+    font-size: 30px;
+    color: black;
+}
 .logo{
-    width: 3rem;
-    height: 3rem;
+    width: 4rem;
+    height: 4rem;
 }
-
+.ancorHeader{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
 .cont-search-home{
     width: 50%;
     height: 100%;
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
     align-items: center;
     gap: 1rem;
+}
+.cont-search-home-fake{
+    display: flex;
+    width: 200px;
 }
 
 .cont-search{
@@ -60,14 +71,18 @@ header{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    
+    width: 80%;
     height: 60%;
 }
+.cont-search2>form{
+    width: 100%;
+}
+
 .search{
     border: none;
     background-color: transparent;
     height: 100%;
-    width: 30rem;
+    width: 100%;
 }
 
 input:focus {
@@ -80,12 +95,13 @@ input:focus {
 }
 
 .car{
+    display: flex;
     width: 1.5rem;
-    height: 1.5rem;
+    margin-right: 10px;
 }
 
 .cont-ancors{
-    width: 30rem;
+    width: 40px;
     height: 100%;
     display: flex;
     justify-content: end;
@@ -115,7 +131,7 @@ main{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: auto;
+    max-height: 600px;
 }
 
 .dadCarousel{
@@ -125,9 +141,7 @@ main{
     padding-top: 30px;
     padding-bottom: 30px;
     width: 65%;
-    min-height: 465px;
     border-radius: 20px;
-
 }
 
 #carouselExampleAutoplaying{
@@ -213,10 +227,6 @@ main{
     margin-top: 4rem;
 }
 
-header .cont-ancors .pageActive{
-    background-color: #1BB2E1;
-}
-
 .details{
     background-color: #1BB2E1;
 }
@@ -265,9 +275,9 @@ header .cont-ancors .pageActive{
     align-items: center;
     justify-content: center;
     padding-top: 2rem;
-    gap: 80px;
+    gap: 60px;
     padding-bottom: 30px;
-
+    margin: 10px;
 }
 
 .imgWelcome{
@@ -277,8 +287,9 @@ header .cont-ancors .pageActive{
 }
 .parrafo{
     display: flex;
-    width: 600px;
-
+    max-width: 600px;
+    text-align: center;
+    padding: 2rem;
 }
 
 .mapGoogle{
@@ -291,7 +302,8 @@ header .cont-ancors .pageActive{
 .negrita{
     font-weight: bold;
     color: rgb(169, 123, 39);
-    font-size: 18px;
+    font-size: 20px;
+    height: 30px;
 }
 .ancorFoot{
     text-decoration: none;
@@ -303,12 +315,14 @@ header .cont-ancors .pageActive{
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 30px;
 }
 .contFootDad{
     display: flex;
-    width: 80%;
+    width: 90%;
     justify-content: center;
-    gap: 200px;
+    gap: 40px;
+    flex-wrap: wrap;
 }
 
 footer{
@@ -324,40 +338,42 @@ footer{
 
 .footerMod{
     display: flex;
-    gap: 60px;   
+    gap: 60px;
+    margin-top: 6px;
 }
 .logoFooter{
     width: 25px;
 }
 
-
-/* CONTACTO */
 .contenedor-padre{
-     display: flex;
-     justify-content: center;
-     align-items: center;
-     padding: 1rem;
-     margin: 2rem;
-     height: 30rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 280px;
+    padding: 1rem;
+    margin: 2rem;
+    height: 30rem;
  }
  .contact-main{
-     display: flex;
-     flex-direction: column;
-     align-items: center;
-     min-height: 100vh;
-     background-color: rgba(167, 232, 232, 0.246);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(167, 232, 232, 0.246);
  }
  .contenedor-form{
-     width: 30rem;
+    width: 30rem;
  }
  .contact-main section h2{
-     display: flex;
-     justify-content: center;
-     align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px; 
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
  }
- .texto{
-     width: 60rem;
-     text-align: center;
+.textoContact{
+    max-width: 700px;
+    text-align: center;
  }
  .contact-main section{
      margin: 3rem;
@@ -379,9 +395,12 @@ footer{
  .container-contact{
     display: flex;
     background-color: rgba(0, 0, 0, 0.238);
-    padding: 2rem;
+    padding: 1.5rem;
     margin-bottom: 2rem;
     border-radius: 1rem;
+    max-width: 1000px ;
+    margin-left: 30px;
+    margin-right: 30px;
  }
  .cont-img-contacto{
     display: flex;
@@ -397,27 +416,29 @@ footer{
  .contact-imagenes p{
     text-align: center;
     font-size: 15px;
-    width: 25rem;
     padding: 2rem;
  }
 
-/* CARRITO */
-
  .img-cart{
-    width: 5rem;
-    height: 5rem;
+    width: 6rem;
+    
 }
-.venta{
+.venta{ 
     width: 25rem;
     padding: .5rem;
     border: 1px solid black;
     border-radius: 6px;
     gap: 1rem
 }
-
+.btn-car{
+    border: none;
+}
+.btn-car>img{
+    margin: 0;
+}
 .garbage{
-    width: 1.5rem;
-    height: 1.5rem;
+    width: 1rem;
+    height: 1rem;
 }
 .btn-delete{
     border: none;
@@ -429,7 +450,9 @@ footer{
     justify-content: space-between;
 }
 
+
 .cart-info{
+    
     padding-top: 1rem ;
     display: flex;
     flex-direction: column;
@@ -492,7 +515,8 @@ footer{
     fill: rgb(241, 1, 1);
 }
 /**/
- @media only screen and (max-width: 767px){
+
+@media only screen and (max-width: 767px){
     header>div .navbar {
         justify-content: flex-end;
     }
@@ -513,5 +537,71 @@ footer{
         background-color: #fce1cb;
         text-align: center;
         margin: .5rem 0;
+    }
+}
+@media (min-width:768px) and (max-width:1023px){
+    .contact-imagenes p {
+        display: none;
+    }
+
+}
+@media (min-width:320px) and (max-width:767px){
+    .img-contacto{
+        display: none;
+    }
+    header{
+        justify-content: center;
+    }
+    .dadCarousel{
+        width: 100%;
+        padding-top: 0px;
+        padding-bottom: 0px;
+    }
+    .border1{
+        border-radius: 0px;
+    }
+    .contFootDad{
+        gap: 0;
+    }
+    .contact-imagenes p {
+        display: none;
+    }
+    .ancorHeader{
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+    .mapGoogle{
+        width: 300px;
+        margin: 10px;
+    }
+    .conteiner{
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        gap: 10px;
+    }
+    .parrafo{
+        max-width: 300px;
+    }
+    .imgWelcome{
+        width: 100px;
+    }
+    .cont-slide{
+        width: 180px
+    }
+    .contact-main section h2 {
+        text-align: center;
+    }
+    .container-contact {
+        width: 300px;
+    }
+    .form-control{
+        width: 300px;
+    }
+    .form-input{
+        width: 70% !important;
+        background-color: black;
+    }
+    .nombre, .apellido, .email, .telefono, .comentario {
+        padding: 0;
     }
 }

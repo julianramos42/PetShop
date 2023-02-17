@@ -6,6 +6,7 @@ const shopping = document.getElementById("cart")
 const carrito = document.getElementById("btn-car")
 const modalCarrito = document.getElementById("modal-content")
 const btnHeart = document.getElementsByClassName("btn-heart")
+const form = document.getElementById("form")
 
 let products = JSON.parse(localStorage.getItem("products")) || [] // trae del local storage los productos que fueron agregados al carrito
 let favoritos = JSON.parse(localStorage.getItem("favoritos")) || []
@@ -144,6 +145,9 @@ carrito.addEventListener("click", (e) => {
     })
 })
 
+form.addEventListener("submit", (e) => {
+    e.preventDefault()
+})
 
 let slideTrack = document.getElementById("slide-track")
 

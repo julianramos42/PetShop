@@ -6,6 +6,7 @@ const shopping = document.getElementById("cart")
 const carrito = document.getElementById("btn-car")
 const modalCarrito = document.getElementById("modal-content")
 const btnHeart = document.getElementsByClassName("btn-heart")
+const form = document.getElementById("form")
 
 let products = JSON.parse(localStorage.getItem("products")) || [] // trae del local storage los productos que fueron agregados al carrito
 let favoritos = JSON.parse(localStorage.getItem("favoritos")) || []
@@ -32,11 +33,11 @@ container.addEventListener("click", (e) => {
     if (e.target.localName === "button") {
         let pressToy = toys.find(toy => toy._id == e.target.id)
         if (pressToy.disponibles > 0) {
+
             for (let toy of toys) {
                if (toy == pressToy) {
                    let i = toys.indexOf(toy)
                    pressToy.disponibles--
-
                    toys[i] = pressToy
                    localStorage.setItem("toys", JSON.stringify(toys)) // se actualiza la propiedad del localStorage, para que cuando recargues la pag no se vuelva a la info antigua
                    let unidades = document.getElementById(`unidades-${pressToy._id}`)
@@ -144,6 +145,9 @@ carrito.addEventListener("click", (e) => {
     })
 })
 
+form.addEventListener("submit", (e) => {
+    e.preventDefault()
+})
 
 let slideTrack = document.getElementById("slide-track")
 

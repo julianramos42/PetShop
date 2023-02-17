@@ -1,77 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../style/style.css">
-    <link rel="shortcut icon" href="../img/dog-food-and-bone-svgrepo-com.png" type="image/x-icon">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <title>Jugueteria</title>
+    <link rel="shortcut icon" href="../img/logo.png" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <title>Farmacia</title>
 </head>
-
 <body>
-    <header>
-        <div class="cont-logo">
-          <a href="../../index.html"><img src="../../Assets/img/logo.png" class="logo" alt="logo"/><b>PetShop</b></a>
-        </div>
-        <div class="cont-search-home">
-          <div class="cont-search2">
-            <form class="d-flex" role="search">
-                <input id="search-bar" class="search" placeholder="Search" aria-label="Search">
-            </form>
-            <img src="../../Assets/img/search.png" class="img-lupa" alt="lupa">
-          </div>
-        </div>
-        <div class="cont-ancors">
-            <a href="../../index.html">Inicio</a>
-            <a class="pageActive" href="./farmacia.html">Farmacia</a>
-            <a href="./jugueteria.html">Jugeteria</a>
-            <a href="./contacto.html">Contacto</a>
-            <button data-bs-toggle="modal" data-bs-target="#staticBackdrop" class="btn-car" id="btn-car"><img src="../img/shopping-cart.png" class="car" alt="car"></button>
-            <div class="modal fade modal-container" id="staticBackdrop" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                  <div class="modal-content w-100 mx-auto" id="modal-content">
-                    <div class="modal-body d-flex flex-column justify-content-center align-items-center gap-3" id="modal-body">        
-                        <div id="cart">
-                            <!-- created with js -->
-                        </div>
-                    </div>
+  <header>
+
+    <div class="cont-logo">
+      <a href="../../index.html"><img src="../img/logo.png" class="logo" alt="logo" /><b>PetShop</b></a>
+    </div>
+    <div class="cont-search-home">
+      <div class="cont-search2">
+        <form class="d-flex" role="search" id="form">
+            <input id="search-bar" class="search" placeholder="Search" aria-label="Search">
+        </form>
+        <img src="../../Assets/img/search.png" class="img-lupa" alt="lupa">
+      </div>
+    </div>
+    <div class="ancorHeader">
+      <a href="../../index.html">Inicio</a>
+      <a href="farmacia.html" class="ancorActive">Farmacia</a>
+      <a href="jugueteria.html">Jugeteria</a>
+      <a href="contacto.html">Contacto</a>
+      <button data-bs-toggle="modal" data-bs-target="#staticBackdrop" class="btn-car" id="btn-car"><img src="../img/shopping-cart.png" class="car" alt="car"></button>
+      <div class="modal fade modal-container" id="staticBackdrop" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content w-100 mx-auto" id="modal-content">
+              <div class="modal-body d-flex flex-column justify-content-center align-items-center gap-3" id="modal-body">        
+                  <div id="cart">
+                      <!-- created with js -->
                   </div>
-                </div>
               </div>
-        </div>
-      </header>
+            </div>
+          </div>
+      </div>
+    </div>
+
+    </header>
 
     <main>
-        <div class="cont-carrusel">
+        <div class="cont-carrusel" >
             <div class="dadCarousel">
+
                 <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
                     <div id="slide">
-                        <!-- created with js -->
+
                     </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
-                        data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
                     </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
-                        data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
                     </button>
-                </div>
+                  </div>
+            
             </div>
         </div>
-        <div class="cards" id="card-container">
-          <!-- created with js -->
+        <div class="cards" id="card-container" >
+           
         </div>
         <div class="cont-slider">
-            <div class="slide-track" id="slide-track">
-              <!-- created with js -->
-            </div>
+            <div class="slide-track" id="slide-track"></div>
           </div>
     </main>
 
@@ -79,8 +76,8 @@
       <div class="contFootDad">
         <div class="contenedorFoot gap-2">
           <span class="negrita"><p class="m-0">Contacto</p></span>
-          <a class="ancorFoot" href="mailto:info@petshop.com">info@petshop.com</a>
-          <a class="ancorFoot" href="tel:+541112224320">+54 (011) 1234567</a>
+          <a class="ancorFoot" href="#">info@petshop.com</a>
+          <a class="ancorFoot" href="#">+54 (011) 1234567</a>
           <a class="ancorFoot" href="#">Paraguay 2334, CABA</a>
           <div class="footerMod">
             <a href="#" class="logoFooter">
@@ -102,29 +99,27 @@
           <span class="negrita"><p class="m-0">Servicios</p></span>
           <a class="ancorFoot" href="#">Venta de articulos</a>
           <a class="ancorFoot" href="#">Cuidado de tu mascota</a>
+          <!-- <a class="ancorFoot" href="#">Paraguay 2334, CABA</a> -->
         </div>
         <div class="contenedorFoot gap-2">
           <span class="negrita"><p class="m-0">Explora</p></span>
-          <a class="ancorFoot" href="./jugueteria.html">Juguetes</a>
-          <a class="ancorFoot" href="./farmacia.html">Farmacia</a>
-          <a class="ancorFoot" href="./contacto.html">Contacto</a>
+          <a class="ancorFoot" href="Assets/html/jugueteria.html">Juguetes</a>
+          <a class="ancorFoot" href="Assets/html/farmacia.html">Farmacia</a>
+          <a class="ancorFoot" href="Assets/html/contacto.html">Contacto</a>
         </div>
-        <div class="contenedorFoot gap-2">
-            <span class="negrita"><p class="m-0">Grupo</p></span>
-            <a class="ancorFoot" href="Assets/html/jugueteria.html">Facundo Rodriguez</a>
-            <a class="ancorFoot" href="Assets/html/farmacia.html">Johan Zuluaga</a>
-            <a class="ancorFoot" href="Assets/html/contacto.html">Julián Ramos</a>
-            <a class="ancorFoot" href="Assets/html/farmacia.html">Pilar Villareal</a>
-            <a class="ancorFoot" href="Assets/html/contacto.html">Salomón Contreras</a>
-          </div>
+        <div class="contenedorFoot">
+          <span class="negrita"><p>Grupo</p></span>
+          <a class="ancorFoot" href="https://github.com/FacundoRodriguez2">Facundo Rodriguez</a>
+          <a class="ancorFoot" href="https://github.com/JohanZ1611">Johan Zuluaga</a>
+          <a class="ancorFoot" href="https://github.com/julianramos42">Julián Ramos</a>
+          <a class="ancorFoot" href="https://github.com/Pilar890">Pilar Villarreal</a>
+          <a class="ancorFoot" href="https://github.com/salomoncjl">Salomón Contreras</a>
+        </div>
       </div>
     </footer>
 
-    <script type="module" src="../js/farmacia.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-</body>
 
+    <script type="module" src="../js/farmacia.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+</body>
 </html>
