@@ -27,7 +27,7 @@ function writeCard(element) {
   return `
     <div class="card producto" id="card" style="width: 18rem;" data-bs-toggle="modal" data-bs-target="#${element._id}">
       <div>
-        <img src="${element.imagen}"class="card-img-top tam_img_card" alt="${element.producto}">
+        <img src="${element.imagen}"class="card-img-top tam-img-card" alt="${element.producto}">
         <button type= "" class="btn-heart">
         <svg class="icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path class="black" id="${element.producto}" d="M12.39 20.87a.696.696 0 0 1-.78 0C9.764 19.637 2 14.15 2 8.973c0-6.68 7.85-7.75 10-3.25 2.15-4.5 10-3.43 10 3.25 0 5.178-7.764 10.664-9.61 11.895z" fill="#000000"/></svg>
         </button>
@@ -50,7 +50,7 @@ function writeCard(element) {
           <div class="modal-body d-flex justify-content-center gap-3">
             <div class="card" style="width: 25rem;">
               <div>
-                <img src="${element.imagen}"class="card-img-top tam_img_card" alt="${element.producto}">
+                <img src="${element.imagen}"class="card-img-top tam-img-card" alt="${element.producto}">
               </div>
               <div class="card-body">
                 <div class="cont-stock d-flex flex-column">
@@ -82,7 +82,7 @@ export function writeSponsors(list, container) {
   for (let i = 0; i < 18; i++) {
     container.innerHTML += `
         <div class="cont-slide">
-          <img src="../img/${list[i]}" alt="">
+          <img class="border2" src="../img/${list[i]}" alt="">
         </div>
       `
   }
