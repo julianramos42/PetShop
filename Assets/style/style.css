@@ -140,7 +140,7 @@ main{
     margin: 0 auto;
     padding-top: 30px;
     padding-bottom: 30px;
-    width: 65%;
+    width: 55%;
     border-radius: 20px;
 }
 
@@ -151,8 +151,8 @@ main{
 .border1{
     margin: 0 auto;
     border-radius: 20px;
-
-    max-height: 465px;
+    object-fit: cover;
+    max-height: 450px;
 }
 
 .cards{
@@ -164,7 +164,7 @@ main{
     gap: 1.5rem;
 }
 
-.card:hover{
+.producto:hover{
     transform: scale(1.05, 1.05);
     cursor: pointer;
 }
