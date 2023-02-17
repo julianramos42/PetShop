@@ -56,40 +56,40 @@ data.then((response) => {
 
     carrito.addEventListener("click", (e) => {
 
-        let modal = document.getElementById("staticBackdrop") // el elemento que le sigue al parent, en este caso el modal
-        modal.addEventListener("click", (e) => {
+        modalCarrito.addEventListener("click", (e) => {
             if (e.target.className.includes("garbage")) {
+
+                let cartContainer = document.getElementById(`cart`)
+                let clickedCard = e.target.parentElement.parentElement.parentElement.parentElement
+                let cartContent = Array.from(cartContainer.children).filter((element) => element.id != `${clickedCard.id}`)
+                let template1 = ""
+                cartContent.forEach((element) => {
+                    if(element){
+                        template1 += `${element.outerHTML}`
+                    }
+                })
+                cartContainer.innerHTML = template1
+
                 let id = e.target.id
                 for (let toy of toys) {
                     if (toy._id == id) {
                        
-                        products = products.filter((product) => product._id != id)
-                        localStorage.setItem("products", JSON.stringify(products))
+                        // products = products.filter((product) => product._id != id)
+                        cartContent = cartContent.filter(element => element.id)
+                        localStorage.setItem("products", JSON.stringify(cartContent))
+                        
                         let i = toys.indexOf(toy)
                         toy.disponibles++
                         toys[i] = toy
                         localStorage.setItem("toys", JSON.stringify(toys))
                     }
                 }
-
-                let cartContainer = document.getElementById(`cart`)
-                console.log(cartContainer)
-                let clickedCard = e.target.parentElement.parentElement.parentElement.parentElement
-                let cartContent = Array.from(cartContainer.children).filter((element) => element.id == `${clickedCard.id}`)
-                let template1 = ""
-                cartContent.forEach((element) => {
-                    
-                    if(!element){
-                      
-                        template1 += `${element.outerHTML}`
-                    }
-                })
-                
-                //cartContainer.innerHTML = template1
             }
-
-            if (!e.target.className.includes("modal-body")) {
-                console.log("hola")
+        })
+        
+        let modal = document.getElementById("staticBackdrop") // el elemento que le sigue al parent, en este caso el modal
+        modal.addEventListener("click", (e) => {
+            if (e.target.className.includes("modal-container")) {
                 createCards(toys, container, "") //cuando se clickee afuera del modal se actualizan las cards
             }
             
