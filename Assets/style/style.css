@@ -404,11 +404,10 @@ footer{
 /* CARRITO */
 
  .img-cart{
-    width: 6rem;
-    
+    width: 5rem;
+    height: 5rem;
 }
 .venta{
-    
     width: 25rem;
     padding: .5rem;
     border: 1px solid black;
@@ -417,8 +416,8 @@ footer{
 }
 
 .garbage{
-    width: 1rem;
-    height: 1rem;
+    width: 1.5rem;
+    height: 1.5rem;
 }
 .btn-delete{
     border: none;
@@ -430,9 +429,7 @@ footer{
     justify-content: space-between;
 }
 
-
 .cart-info{
-    
     padding-top: 1rem ;
     display: flex;
     flex-direction: column;
@@ -460,8 +457,41 @@ footer{
     display: flex;
     gap: 1rem;
 }
-/**/
 
+/*fav*/
+.btn-heart {
+    background-color: transparent;
+    border: none !important;
+    position:absolute;
+    top: .2rem;
+    right: 1rem;
+}
+
+.icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    transition: .2s linear;
+}
+
+.path{
+    background-color: blue;
+}
+
+.btn-heart:hover > .icon {
+    transform: scale(1.2);
+}
+
+.btn-heart:hover > .icon path {
+    fill: rgb(241, 1, 1);
+}
+
+.black{
+    fill: rgb(0, 0, 0);
+}
+.redPath{
+    fill: rgb(241, 1, 1);
+}
+/**/
  @media only screen and (max-width: 767px){
     header>div .navbar {
         justify-content: flex-end;

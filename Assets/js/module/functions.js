@@ -15,10 +15,8 @@ export function createCards(list, container, formulario) {
   if (list.length === 0) {
     noEncontrado(container, formulario)
   } else {
-
     for (let element of list) {
       aux += writeCard(element)
-      
     }
     container.innerHTML += aux
   }
@@ -30,7 +28,9 @@ function writeCard(element) {
     <div class="card producto" id="card" style="width: 18rem;" data-bs-toggle="modal" data-bs-target="#${element._id}">
       <div>
         <img src="${element.imagen}"class="card-img-top tam_img_card" alt="${element.producto}">
-        <button class="favorite-btn"><img src="../img/heart.png" class="img-heart" alt="heart"></button>
+        <button type= "" class="btn-heart">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path class="black" id="${element.producto}" d="M12.39 20.87a.696.696 0 0 1-.78 0C9.764 19.637 2 14.15 2 8.973c0-6.68 7.85-7.75 10-3.25 2.15-4.5 10-3.43 10 3.25 0 5.178-7.764 10.664-9.61 11.895z" fill="#000000"/></svg>
+        </button>
       </div>
       <div class="card-body ">
         <div class="cont-stock d-flex flex-column">
@@ -148,11 +148,9 @@ export function noEncontrado(container, formulario) {
 
 }
 
-export function createShopping(list,container){
+export function createShopping(list,container,precioTotal=0){
   let template = ""
-  let contPrecio = 0
   list.forEach( (element,i) => {
-    contPrecio += element.precio
     template +=`
       <div class="d-flex venta my-2" id="${i}">
         <img class= "img-cart" src="${element.imagen}" alt="ball">
@@ -162,8 +160,7 @@ export function createShopping(list,container){
             <p>Precio: ${element.precio}</p>
           </div>
           <div class="cart-delete">
-            <button class="btn-delete"><img src="../img/shopping-cart.png" class="garbage" alt="garbage" id="${element._id}"></button>
-            <p>${element.disponibles} Unidades</p>
+            <button class="btn-delete"><img src="../img/garbage.png" class="garbage" alt="garbage" id="${element._id}"></button>
           </div>
         </div>
       </div>
@@ -171,10 +168,10 @@ export function createShopping(list,container){
   })
   template += `
     <div class="d-flex cart-pago my-3" style="width: 25rem;">
-      <p class="m-0">Total: $${contPrecio}</p>
+      <p class="m-0">Total: $${precioTotal}</p>
       <div class="btn-pago">
-      <button type="button" class="btn btn-danger" ">Eliminar todo</button>
-        <button type="button" class="btn btn-primary" ">Comprar</button>
+      <button type="button" class="btn btn-danger" id="eliminar">Eliminar todo</button>
+        <button type="button" class="btn btn-primary" id="comprar">Comprar</button>
       </div>
     </div>
   `

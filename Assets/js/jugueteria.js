@@ -5,11 +5,16 @@ const searchBar = document.getElementById("search-bar")
 const shopping = document.getElementById("cart")
 const carrito = document.getElementById("btn-car")
 const modalCarrito = document.getElementById("modal-content")
+const prueba = document.getElementsByClassName("btn-heart")
 
 let products = JSON.parse(localStorage.getItem("products")) || [] // trae del local storage los productos que fueron agregados al carrito
+let favoritos = JSON.parse(localStorage.getItem("favoritos")) || []
 
 localStorage.setItem("products", JSON.stringify(products))
-createShopping(products, shopping)
+
+let precioTotal = 0
+//products.forEach(product => precioTotal += product.precio)
+createShopping(products,shopping)
 
 let data = getData()
 data.then((response) => {
@@ -21,6 +26,15 @@ data.then((response) => {
 
 let toys = JSON.parse(localStorage.getItem("toys")) || [] // toma el value de la key "toys" en el localStorage y lo guarda en la variable toys
 createCards(toys, container, "")
+
+toys.forEach(toy => {
+    favoritos.forEach(fav => {
+        if(toy._id == fav._id){
+            let asd = Array.from(prueba).filter(e => e.firstElementChild.children[0].id == toy.producto)
+            asd[0].children[0].children[0].classList.replace("black", "redPath")
+        }
+    })
+})
 
 searchBar.addEventListener("keyup", (e) => {
     let filteredToys = filterProducts(toys, e.target.value.toLowerCase())
@@ -45,6 +59,12 @@ container.addEventListener("click", (e) => {
             
             products.push(pressToy)
             localStorage.setItem("products", JSON.stringify(products)) // actualiza el valor de la key "products" en el localStorage
+        }else{
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Ya no hay stock disponible',
+            })
         }
     }
     else if (e.target.offsetParent && e.target.offsetParent.className == "card producto") { //si existe un parent y ese parent tiene className card y producto
@@ -55,10 +75,26 @@ container.addEventListener("click", (e) => {
             }
         })
     }
+    else if(e.target.localName == "path"){
+        if(favoritos.some( fav => fav.producto == e.target.id) ){
+            favoritos = favoritos.filter( fav => fav.producto != e.target.id )
+            e.target.classList.replace("redPath", "black")
+            localStorage.setItem( 'favoritos', JSON.stringify( favoritos ) )
+        }else{
+            favoritos.push(toys.find( producto => producto.producto == e.target.id ))
+            e.target.classList.replace("black", "redPath")
+            localStorage.setItem( 'favoritos', JSON.stringify( favoritos ) )
+        }
+
+    }
+    console.log([e.target])
 })
 
 carrito.addEventListener("click", (e) => {
-    createShopping(products, shopping) // actualiza el modal del carrito
+    precioTotal = 0
+    products.forEach(product => precioTotal += product.precio)
+    createShopping(products,shopping,precioTotal) // actualiza el modal del carrito
+
     modalCarrito.addEventListener("click", (e) => {
         if (e.target.className.includes("garbage")) {
             let id = e.target.id
@@ -70,35 +106,41 @@ carrito.addEventListener("click", (e) => {
                     localStorage.setItem("products", JSON.stringify(products))
 
                     toy.disponibles++
-                    toys[i] = toy
+                    
                     localStorage.setItem("toys", JSON.stringify(toys))
                 }
             })
 
-            let cartContainer = document.getElementById(`cart`)
-            let clickedCard = e.target.parentElement.parentElement.parentElement.parentElement
-            let cartContent = Array.from(cartContainer.children).filter((element) => element.id != `${clickedCard.id}`)
-            let template1 = ""
-            cartContent.forEach((element) => {
-                if(element){
-                    template1 += `${element.outerHTML}`
-                }
+            precioTotal = 0
+            products.forEach(product => precioTotal += product.precio)
+            createShopping(products,shopping,precioTotal) 
+
+        }else if(e.target.id == "eliminar"){
+            toys.forEach(toy => {
+                products.forEach(product => {
+                    if(product._id == toy._id){
+                        toy.disponibles++
+                    }
+                })
             })
-            cartContainer.innerHTML = template1
+            localStorage.setItem("toys", JSON.stringify(toys))
+            products = []
+            localStorage.setItem("products", JSON.stringify(products))
+            precioTotal = 0
+            createShopping(products,shopping,precioTotal)
 
-            //for (let toy of toys) {
-                // if (toy._id == id) {         
-                //     let finalProduct = products.find( product => product._id == toy._id)           
-                //     let position = products.findIndex( product => product == finalProduct )         
-                //     products.splice(position,1)
-                //     console.log(products)
-
-                //     let i = toys.indexOf(toy)
-                //     toy.disponibles++
-                //     toys[i] = toy
-                //     localStorage.setItem("toys", JSON.stringify(toys))
-                // }
-            //}
+        }else if(e.target.id == "comprar"){
+            products = []
+            localStorage.setItem("products", JSON.stringify(products))
+            precioTotal = 0
+            createShopping(products,shopping,precioTotal)
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Compra realizada con exito',
+                showConfirmButton: false,
+                timer: 1500
+            })
         }
     })
     
@@ -110,6 +152,7 @@ carrito.addEventListener("click", (e) => {
         
     })
 })
+
 
 let slideTrack = document.getElementById("slide-track")
 
