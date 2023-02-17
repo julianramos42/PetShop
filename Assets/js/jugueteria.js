@@ -1,9 +1,13 @@
-import { getData, createCards, filterProducts, writeSponsors, createCarru } from "./module/functions.js";
+import { getData, createCards, filterProducts, writeSponsors, createCarru, createShopping } from "./module/functions.js";
 
 const container = document.getElementById("card-container")
 const searchBar = document.getElementById("search-bar")
+const shopping = document.getElementById("cart")
+const carrito = document.getElementById("btn-car")
+const modalCarrito = document.getElementById("modal-content")
 
 let products = JSON.parse(localStorage.getItem("products")) || [] // trae del local storage los productos que fueron agregados al carrito
+createShopping(products, shopping) // actualiza el modal del carrito
 
 let data = getData()
 data.then((response) => {
@@ -24,18 +28,20 @@ data.then((response) => {
         if (e.target.localName === "button") {
             let pressToy = toys.find(toy => toy._id == e.target.id)
             if (pressToy.disponibles > 0) {
-                products.push(pressToy)
-                localStorage.setItem("products", JSON.stringify(products))
                 for (let toy of toys) {
                     if (toy == pressToy) {
                         let i = toys.indexOf(toy)
                         pressToy.disponibles--
                         toys[i] = pressToy
-                        localStorage.setItem("toys", JSON.stringify(toys))
-                        let unidades = document.getElementById(`unidades-${pressToy._id}`)
-                        unidades.textContent = `${pressToy.disponibles} unidades`
+                        localStorage.setItem("toys", JSON.stringify(toys)) // se actualiza la propiedad del localStorage, para que cuando recargues la pag no se vuelva a la info antigua
+                        
+                        let unidades = document.getElementById(`unidades-${pressToy._id}`) 
+                        unidades.textContent = `${pressToy.disponibles} unidades` // toma el id de <p> y le cambia el textContent
                     }
                 }
+                products.push(pressToy)
+                localStorage.setItem("products", JSON.stringify(products)) // actualiza el valor de la key "products" en el localStorage
+                createShopping(products, shopping) // actualiza el modal del carrito
             }
         }
         else if (e.target.offsetParent && e.target.offsetParent.className == "card producto") { //si existe un parent y ese parent tiene className card y producto
@@ -46,6 +52,41 @@ data.then((response) => {
                 }
             })
         }
+    })
+
+    carrito.addEventListener("click", (e) => {
+        modalCarrito.addEventListener("click", (e) => {
+            let id = e.target.id
+            for(let toy of toys){
+                if(toy._id == id){
+                    let deletedToy = toy
+
+                    products = products.filter( (product) => product._id != id )
+                    localStorage.setItem("products", JSON.stringify(products))
+
+                    let i = toys.indexOf(toy)
+                        toy.disponibles++
+                        toys[i] = toy
+                        localStorage.setItem("toys", JSON.stringify(toys))
+
+                    let modal = document.getElementById("staticBackdrop") // el elemento que le sigue al parent, en este caso el modal
+                    modal.addEventListener("click", (e) => {
+                        if (e.target.className.includes("modal-container")) {
+                            createCards(toys, container, "") //cuando se clickee afuera del modal se actualizan las cards
+                        }                        
+                        let cartContainer = document.getElementById(`cart`)
+                        let clickedCard = e.target.parentElement.parentElement.parentElement.parentElement
+                        let cartContent = Array.from(cartContainer.children).filter( (element) => element.id != `${clickedCard.id}`)
+                        let template1 = ""
+                        cartContent.forEach( (element) => { 
+                            template1 += `${element.outerHTML}`                
+                        })                     
+                        cartContainer.innerHTML = template1
+                    })
+                }
+            }
+               
+        })
     })
 
 })
@@ -62,7 +103,6 @@ let slide = document.getElementById("slide")
 let array2 = ["dog.jpg", "pexels-adam-kontor-333083.jpg", "pexels-kat-smith-551628.jpg", "dog-ball.jpg", "carpincho.jpg"]
 
 createCarru(array2, slide)
-
 
 
 // PARA BORRAR ITEMS DEL CARRITO

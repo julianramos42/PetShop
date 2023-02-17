@@ -124,16 +124,16 @@ export function createCarruHome(list, container) {
   container.innerHTML += `
     <div class="carousel-inner">
                       <div class="carousel-item active">
-                        <img src="./Assets/img/${list[0]}" class="d-block w-100 border1" alt="${list[0]}">
+                        <img src="./Assets/img/${list[0]}" class="d-block w-100 m-0 border1" alt="${list[0]}">
                       </div>
                       <div class="carousel-item">
-                        <img src="./Assets/img/${list[1]}" class="d-block w-100 border1" alt="${list[1]}">
+                        <img src="./Assets/img/${list[1]}" class="d-block w-100 m-0 border1" alt="${list[1]}">
                       </div>
                       <div class="carousel-item">
-                        <img src="./Assets/img/${list[2]}" class="d-block w-100 border1" alt="${list[2]}">
+                        <img src="./Assets/img/${list[2]}" class="d-block w-100 m-0 border1" alt="${list[2]}">
                       </div>
                       <div class="carousel-item">
-                        <img src="./Assets/img/${list[3]}" class="d-block w-100 border1" alt="${list[3]}">
+                        <img src="./Assets/img/${list[3]}" class="d-block w-100 m-0 border1" alt="${list[3]}">
                       </div>
                     </div>
   `
@@ -147,3 +147,39 @@ export function noEncontrado(container, formulario) {
   </div>`
 
 }
+
+export function createShopping(list,container){
+  let template = ""
+  let contPrecio = 0
+  list.forEach( (element,i) => {
+    contPrecio += element.precio
+    template +=`
+      <div class="d-flex venta my-2" id="${i}">
+        <img class= "img-cart" src="${element.imagen}" alt="ball">
+        <div class="shopping-info">
+          <div class="cart-info">
+            <b>${element.producto}</b>
+            <p>Precio: ${element.precio}</p>
+          </div>
+          <div class="cart-delete">
+            <button class="btn-delete"><img src="../img/shopping-cart.png" class="garbage" alt="garbage" id="${element._id}"></button>
+            <p>${element.disponibles} Unidades</p>
+          </div>
+        </div>
+      </div>
+    `
+  })
+  template += `
+    <div class="d-flex cart-pago my-3" style="width: 25rem;">
+      <p class="m-0">Total: $${contPrecio}</p>
+      <div class="btn-pago">
+      <button type="button" class="btn btn-danger" ">Eliminar todo</button>
+        <button type="button" class="btn btn-primary" ">Comprar</button>
+      </div>
+    </div>
+  `
+  container.innerHTML = template
+}
+
+
+
