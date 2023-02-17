@@ -181,5 +181,9 @@ export function createShopping(list,container){
   container.innerHTML = template
 }
 
-
+export function orderProducts(array){
+  for (const [indice, objeto] of array.entries()) {
+    objeto.indice = indice;
+  }
+}
 
