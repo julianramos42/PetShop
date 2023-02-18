@@ -26,17 +26,17 @@ function writeCard(element) {
   let color = element.disponibles < 5 ? "red" : "green";
   return `
     <div class="card producto" id="card" style="width: 18rem;" data-bs-toggle="modal" data-bs-target="#${element._id}">
-      <div>
+      <div class="card-img">
         <img src="${element.imagen}"class="card-img-top tam-img-card" alt="${element.producto}">
         <button type= "" class="btn-heart">
         <svg class="icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path class="black" id="${element.producto}" d="M12.39 20.87a.696.696 0 0 1-.78 0C9.764 19.637 2 14.15 2 8.973c0-6.68 7.85-7.75 10-3.25 2.15-4.5 10-3.43 10 3.25 0 5.178-7.764 10.664-9.61 11.895z" fill="#000000"/></svg>
         </button>
       </div>
-      <div class="card-body ">
+      <div class="card-body">
         <div class="cont-stock d-flex flex-column">
           <p class="card-text"><b>Precio: $${element.precio}</b></p>
           <p class=" ${color} text-center stock"><b>Stock</b></p>
-          <h5 >${element.producto}</h5>
+          <h5 class="fw-bold">${element.producto}</h5>
         </div>
         <div class="cont-unidad d-flex justify-content-end align-items-end">
           <p>${element.disponibles} Unidades</p>
@@ -53,18 +53,18 @@ function writeCard(element) {
                 <img src="${element.imagen}"class="card-img-top tam-img-card" alt="${element.producto}">
               </div>
               <div class="card-body">
-                <div class="cont-stock d-flex flex-column">
+                <div class="cont-stock d-flex flex-column align-items-center">
                   <p class="card-text"><b>Precio: $${element.precio}</b></p>
                   <p class=" ${color} text-center stock"><b>Stock</b></p>
-                  <h5 >${element.producto}</h5>
+                  <h5 class="fw-bold text-center">${element.producto}</h5>
                 </div>
-                <div class="cont-unidad d-flex justify-content-end align-items-end">
+                <div class="cont-unidad d-flex justify-content-center align-items-end">
                   <p id="unidades-${element._id}">${element.disponibles} Unidades</p>
                 </div>
               </div>
             </div>
             <div class="d-flex flex-column justify-content-center" style="width: 25rem;">
-              <p>${element.descripcion}</p>
+              <p class="text-center">${element.descripcion}</p>
               <button type="button" class="btn btn-primary" id="${element._id}">Agregar Al Carrito</button>
             </div>      
           </div>
@@ -163,7 +163,7 @@ export function createShopping(list,container,precioTotal=0,bool){
             <p>Precio: ${element.precio}</p>
           </div>
           <div class="cart-delete">
-            <button class="btn-delete"> <svg xmlns="http://www.w3.org/2000/svg" id="${element._id}" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+            <button class="btn-delete">
               <img src="${src}" class="garbage" alt="garbage" id="${element._id}"></img>
             </button>
           </div>

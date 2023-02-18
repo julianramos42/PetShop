@@ -1,3 +1,5 @@
+import { writeSponsors } from './module/functions.js'
+
 const form = document.getElementById('form')
 
 import { getData, createCarruHome,writeSponsorsHome, createShopping} from './module/functions.js'
@@ -91,3 +93,9 @@ form.addEventListener("submit", (e) => {
       })
     form.reset()
 } );
+
+let slideTrack = document.getElementById("slide-track")
+
+let array = ["dog-chow.png", "dog-selection.png", "dogui.png", "kongo.jpg", "pedigree.png", "proplan.png", "royal-canin.png", "sabrocitos.png", "whiscas.png", "dog-chow.png", "dog-selection.png", "dogui.png", "kongo.jpg", "pedigree.png", "proplan.png", "royal-canin.png", "sabrocitos.png", "whiscas.png"]
+
+writeSponsors(array, slideTrack)
