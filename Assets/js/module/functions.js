@@ -163,8 +163,8 @@ export function createShopping(list,container,precioTotal=0,bool){
             <p>Precio: ${element.precio}</p>
           </div>
           <div class="cart-delete">
-            <button class="btn-delete">
-              <img src="${src}" class="garbage" alt="garbage" id="${element._id}"></img>
+            <button class="btn-delete"> 
+              <img src="${src}" class="garbage" alt="garbage" id="g${element._id}"></img>
             </button>
           </div>
         </div>

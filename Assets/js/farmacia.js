@@ -86,7 +86,7 @@ carrito.addEventListener("click", (e) => {
 
     modalCarrito.addEventListener("click", (e) => {
         if (e.target.className.includes("garbage")) {
-            let id = e.target.id
+            let id = e.target.id.slice(1)
             cartProducts.forEach(cartProduct => {
                 if (cartProduct._id == id) {         
                     let finalProduct = products.find( product => product._id == cartProduct._id)           
