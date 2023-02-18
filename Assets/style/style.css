@@ -5,8 +5,14 @@
     font-family: 'Montserrat', sans-serif;
 }
 
+.body{
+    background-image: url(../img/fondo.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 40%;
+}
+
 .headerConSearch{
-    background-color: #eeecec;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -15,11 +21,10 @@
     flex-wrap: wrap;
 }
 .headerSinSearch{
-    background-color: #eeecec;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 15.5rem;
+    padding: 0 3rem;
     gap: 10px;
     flex-wrap: wrap;
 }
@@ -31,6 +36,8 @@ header div a{
     text-decoration: none;
     display: flex;
     align-items: center;
+    color: black;
+    font-weight: bold;
 }
 .ancorActive{
     border-bottom: 4px solid orange;
@@ -45,6 +52,56 @@ header div a b{
     width: 4rem;
     height: 4rem;
 }
+
+.main-container{
+    margin: 0rem 5rem 1rem 5rem;
+    background-color: rgba(255, 252, 252, 60%);
+}
+
+.main-container .main-content-container{
+    margin: 4rem 6rem 1rem 6rem;
+}
+
+#slide {
+    height: 26.25rem;
+}
+
+.carousel-inner{
+    height: 26.25rem;
+}
+
+.carousel-item{
+    height: 26.25rem;
+}
+
+.main-container .container1{
+    display: flex;
+    margin: 0;
+    padding: 0;
+    justify-content: space-between;
+}
+
+.main-container .container1 .container-text{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 29.18rem;
+}
+
+.main-container .container1 .container-text .title h2{
+    text-align: center;
+    margin: 0;
+}
+.main-container .container1 .container-img{
+    display: flex;
+    justify-content: end;
+    width: 60%;
+}
+.main-container .container1 .container-img img{
+    width: 50rem;
+    height: 58.813rem;
+}
+
 .ancorHeader{
     display: flex;
     gap: 20px;
@@ -108,7 +165,6 @@ input:focus {
 }
 
 .car{
-    display: flex;
     width: 1.5rem;
     margin-right: 10px;
 }
@@ -135,11 +191,9 @@ input:focus {
 
 main{
     min-height: 77vh;
-    background-color: #D9D9D9;
 }
 
 .cont-carrusel{
-    background-color: white;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -150,10 +204,11 @@ main{
 .dadCarousel{
     display: flex;
     justify-content: center;
-    margin: 0 auto;
+    margin: 3rem auto 2rem auto;
     padding-top: 30px;
     padding-bottom: 30px;
-    width: 55%;
+    width: 100%;
+    height: 30rem;
     border-radius: 20px;
 }
 
@@ -164,8 +219,8 @@ main{
 .border1{
     margin: 0 auto;
     border-radius: 20px;
+    height: 26.25rem;
     object-fit: cover;
-    max-height: 450px;
 }
 
 .cards{
@@ -310,10 +365,8 @@ main{
     box-shadow: 0 0 15px;
 }
 .parrafo{
-    display: flex;
-    max-width: 600px;
     text-align: center;
-    padding: 2rem;
+    margin: 2rem 0 3rem 0;
 }
 
 .mapGoogle{
@@ -330,16 +383,16 @@ main{
     height: 30px;
 }
 .ancorFoot{
-    text-decoration: none;
+    text-decoration: underline;
     text-align: center;
-    color: white;
+    color: black;
     width: 200px;
 }
 .contenedorFoot{
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 30px;
+    margin: 30px 0;
 }
 .contFootDad{
     display: flex;
@@ -350,20 +403,19 @@ main{
 }
 
 footer{
-    background-color: #000;
+    background-color: rgba(235, 227, 255, 60%);
     min-height: 15vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 2rem;
-    padding: 1rem 0;
 }
 
 .footerMod{
     display: flex;
-    gap: 60px;
-    margin-top: 6px;
+    gap: 40px;
+    margin-top: 15px;
 }
 .logoFooter{
     width: 25px;
@@ -456,6 +508,7 @@ footer{
 }
 .btn-car{
     border: none;
+    background: none;
 }
 .btn-car>img{
     margin: 0;
