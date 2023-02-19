@@ -39,7 +39,7 @@ function writeCard(element) {
           <h5 class="fw-bold">${element.producto}</h5>
         </div>
         <div class="cont-unidad d-flex justify-content-end align-items-end">
-          <p>${element.disponibles} Unidades</p>
+          <p class="m-0">${element.disponibles} Unidades</p>
         </div>
       </div>
     </div>
@@ -47,9 +47,9 @@ function writeCard(element) {
     <div class="modal fade modal-container" id="card-${element._id}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content w-100 mx-auto">
-          <div class="modal-body d-flex justify-content-center gap-3">
+          <div class="modal-body d-flex justify-content-center align-items-center gap-3">
             <div class="card" style="width: 25rem;">
-              <div>
+              <div class="card-img">
                 <img src="${element.imagen}"class="card-img-top tam-img-card" alt="${element.producto}">
               </div>
               <div class="card-body">
@@ -63,7 +63,7 @@ function writeCard(element) {
                 </div>
               </div>
             </div>
-            <div class="d-flex flex-column justify-content-center" style="width: 25rem;">
+            <div class="card-description" style="width: 25rem;">
               <p class="text-center">${element.descripcion}</p>
               <button type="button" class="btn btn-primary" id="${element._id}">Agregar Al Carrito</button>
             </div>      
