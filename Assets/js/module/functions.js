@@ -25,7 +25,7 @@ export function createCards(list, container, formulario) {
 function writeCard(element) {
   let color = element.disponibles < 5 ? "red" : "green";
   return `
-    <div class="card producto" id="card" style="width: 18rem;" data-bs-toggle="modal" data-bs-target="#${element._id}">
+    <div class="card producto" id="card" style="width: 18rem;" data-bs-toggle="modal" data-bs-target="#card-${element._id}">
       <div class="card-img">
         <img src="${element.imagen}"class="card-img-top tam-img-card" alt="${element.producto}">
         <button type= "" class="btn-heart">
@@ -44,7 +44,7 @@ function writeCard(element) {
       </div>
     </div>
 
-    <div class="modal fade modal-container" id="${element._id}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade modal-container" id="card-${element._id}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content w-100 mx-auto">
           <div class="modal-body d-flex justify-content-center gap-3">
@@ -164,7 +164,7 @@ export function createShopping(list,container,precioTotal=0,bool){
           </div>
           <div class="cart-delete">
             <button class="btn-delete"> 
-              <img src="${src}" class="garbage" alt="garbage" id="g${element._id}"></img>
+              <img src="${src}" class="garbage" alt="garbage" id="${element._id}"></img>
             </button>
           </div>
         </div>

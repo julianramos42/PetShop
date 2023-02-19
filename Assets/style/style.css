@@ -108,12 +108,13 @@ header div a b {
 .main-container .container1 .container-img {
     display: flex;
     justify-content: end;
-    width: 60%;
+    align-items: end;
+    width: 40rem;
 }
 
 .main-container .container1 .container-img img {
-    width: 50rem;
-    height: 58.813rem;
+    width: 27rem;
+    height: 38rem
 }
 
 .ancorHeader {
@@ -669,16 +670,24 @@ footer {
 
 
 
-/**/
+/*MEDIAS*/
 
-@media (min-width:320px) and (max-width:767px) {
+@media (max-width:767px) {
     .main-content-container {
         margin: 1rem !important;
     }
 
+    .headerSinSearch{
+        justify-content: center;
+    }
+
+    .headerConSearch{
+        justify-content: center;
+    }
 
     .ancorHeader {
         flex-wrap: wrap;
+        justify-content: center;
     }
 
     .container-img {
@@ -708,7 +717,6 @@ footer {
     .contFootDad {
         gap: 0;
     }
-
     
     .modal-content{
         width: 80% !important;
@@ -736,7 +744,42 @@ footer {
     }
 }
 
+@media (min-width:691px) and (max-width:767px) {
+    .headerSinSearch{
+        justify-content: space-between;
+    }
+}
+
+@media (min-width:768px) and (max-width:940px){
+    .headerConSearch{
+        justify-content: center;
+    }
+}
+
+@media (min-width:941px) and (max-width:1023px){
+    .cont-search-home{
+        width: 30%;
+    }
+    
+    .logo{
+        width: 3rem;
+        width: 3rem;
+    }
+    
+    .cont-logo a b{
+        font-size: 15px;
+    }
+    
+    .cont-search2{
+        width: 80%;
+    }
+}
+
 @media (min-width:768px) and (max-width:1023px) {
+
+    .ancorHeader{
+        gap: 10px
+    }
 
     .container-img>img {
         display: none;
@@ -749,18 +792,6 @@ footer {
 
 
 @media (min-width:1023px) and (max-width:1365px) {
-    .container-img {
-        flex-wrap: wrap;
-        align-content: end;
-        width: 70% !important;
-    }
-
-    .container-img img {
-        width: 29rem !important;
-        height: 34rem !important;
-
-    }
-
     .container-text {
         width: 23rem !important;
     }
@@ -768,11 +799,12 @@ footer {
     .mapGoogle {
         width: 350px;
     }
-}
 
-@media (min-width:1366px) and (max-width:1800px) {
-    .container-img {
-        width: 70% !important;
+    .cont-search-home{
+        width: 30%;
     }
 
+    .cont-search2{
+        width: 80%;
+    }
 }

@@ -86,16 +86,15 @@ carrito.addEventListener("click", (e) => {
 
     modalCarrito.addEventListener("click", (e) => {
         if (e.target.className.includes("garbage")) {
-            let id = e.target.id.slice(1)
+            let id = e.target.id
             cartProducts.forEach(cartProduct => {
-                if (cartProduct._id == id) {         
+                if (cartProduct._id == id) {        
                     let finalProduct = products.find( product => product._id == cartProduct._id)           
                     let position = products.findIndex( product => product == finalProduct )         
                     products.splice(position,1)
                     localStorage.setItem("products", JSON.stringify(products))
 
                     cartProduct.disponibles++
-                    
                 }
             })
             localStorage.setItem("toys", JSON.stringify(cartProducts.filter(product => product.categoria == "jugueteria")))
