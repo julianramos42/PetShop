@@ -263,7 +263,9 @@ main {
     height: 28rem !important;
 }
 
-
+.modal-body .card{
+    width: 18rem !important;
+}
 
 .producto:hover {
     transform: scale(1.05, 1.05);
@@ -694,6 +696,10 @@ footer {
 @media (max-width:499px){
     .modal-body{
         flex-direction: column;
+    }
+
+    .modal-body .card{
+        width: 12rem !important;
     }
 
     .card-description{

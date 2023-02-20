@@ -46,7 +46,7 @@ function writeCard(element) {
 
     <div class="modal fade modal-container" id="card-${element._id}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content w-100 mx-auto">
+        <div class="modal-content mx-auto">
           <div class="modal-body d-flex justify-content-center align-items-center gap-3">
             <div class="card" style="width: 25rem;">
               <div class="card-img">
