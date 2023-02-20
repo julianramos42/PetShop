@@ -28,19 +28,23 @@ searchBar.addEventListener("keyup", (e) => {
     if(favorito.checked){
         let filteredFavourites = filterProducts(favoritos, e.target.value.toLowerCase()).filter(product => product.categoria === "jugueteria")
         createCards(filteredFavourites, container, e.target.value.toLowerCase())
+        fillHeart(filteredFavourites,favoritos,btnHeart)
     }else{
         let filteredToys = filterProducts(toys, e.target.value.toLowerCase())
         createCards(filteredToys, container, e.target.value.toLowerCase())
+        fillHeart(filteredToys,favoritos,btnHeart)
     }
 })
 
 favorito.addEventListener("click", (e) =>{
     if(favorito.checked){
-        createCards(favoritos.filter(product => product.categoria === "jugueteria"), container, "")
-        fillHeart(toys,favoritos,btnHeart)
+        let filteredToys = filterProducts(favoritos, searchBar.value).filter(product => product.categoria === "jugueteria")
+        createCards(filteredToys, container, searchBar.value)
+        fillHeart(filteredToys,favoritos,btnHeart)
     }else{
-        createCards(toys, container, "")
-        fillHeart(toys,favoritos,btnHeart)
+        let filteredToys = filterProducts(toys, searchBar.value).filter(product => product.categoria === "jugueteria")
+        createCards(filteredToys, container, searchBar.value)
+        fillHeart(filteredToys,favoritos,btnHeart)
     }
 })
 

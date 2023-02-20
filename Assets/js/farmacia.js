@@ -29,19 +29,23 @@ searchBar.addEventListener("keyup", (e) => {
     if(favorito.checked){
         let filteredFavourites = filterProducts(favoritos, e.target.value.toLowerCase()).filter(product => product.categoria === "farmacia")
         createCards(filteredFavourites, container, e.target.value.toLowerCase())
+        fillHeart(filteredFavourites,favoritos,btnHeart)
     }else{
-        let filteredToys = filterProducts(toys, e.target.value.toLowerCase())
-        createCards(filteredToys, container, e.target.value.toLowerCase())
+        let filteredPharmacyProducts = filterProducts(pharmacyProducts, e.target.value.toLowerCase())
+        createCards(filteredPharmacyProducts, container, e.target.value.toLowerCase())
+        fillHeart(filteredPharmacyProducts,favoritos,btnHeart)
     }
 })
 
 favorito.addEventListener("click", (e) =>{
     if(favorito.checked){
-        createCards(favoritos.filter(product => product.categoria === "farmacia"), container, "")
-        fillHeart(pharmacyProducts,favoritos,btnHeart)
+        let filteredPharmacyProducts = filterProducts(favoritos, searchBar.value).filter(product => product.categoria === "farmacia")
+        createCards(filteredPharmacyProducts, container, searchBar.value)
+        fillHeart(filteredPharmacyProducts,favoritos,btnHeart)
     }else{
-        createCards(pharmacyProducts, container, "")
-        fillHeart(pharmacyProducts,favoritos,btnHeart)
+        let filteredPharmacyProducts = filterProducts(pharmacyProducts, searchBar.value).filter(product => product.categoria === "farmacia")
+        createCards(filteredPharmacyProducts, container, searchBar.value)
+        fillHeart(filteredPharmacyProducts,favoritos,btnHeart)
     }
 })
 
