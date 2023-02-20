@@ -588,7 +588,7 @@ footer {
 }
 
 .img-cart {
-    width: 6rem;
+    width: 30%;
 
 }
 
@@ -620,7 +620,7 @@ footer {
 }
 
 .shopping-info {
-    width: 100%;
+    width: 70%;
     display: flex;
     justify-content: space-between;
 }
