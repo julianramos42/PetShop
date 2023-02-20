@@ -7,6 +7,7 @@ const carrito = document.getElementById("btn-car")
 const modalCarrito = document.getElementById("modal-content")
 const btnHeart = document.getElementsByClassName("btn-heart")
 const form = document.getElementById("form")
+const favorito = document.getElementById("fav")
 
 let products = JSON.parse(localStorage.getItem("products")) || [] // trae del local storage los productos que fueron agregados al carrito
 let favoritos = JSON.parse(localStorage.getItem("favoritos")) || []
@@ -25,8 +26,23 @@ createCards(pharmacyProducts, container, "")
 fillHeart(pharmacyProducts,favoritos,btnHeart)
 
 searchBar.addEventListener("keyup", (e) => {
-    let filteredpharmacyProducts = filterProducts(pharmacyProducts, e.target.value.toLowerCase())
-    createCards(filteredpharmacyProducts, container, e.target.value.toLowerCase())
+    if(favorito.checked){
+        let filteredFavourites = filterProducts(favoritos, e.target.value.toLowerCase()).filter(product => product.categoria === "farmacia")
+        createCards(filteredFavourites, container, e.target.value.toLowerCase())
+    }else{
+        let filteredToys = filterProducts(toys, e.target.value.toLowerCase())
+        createCards(filteredToys, container, e.target.value.toLowerCase())
+    }
+})
+
+favorito.addEventListener("click", (e) =>{
+    if(favorito.checked){
+        createCards(favoritos.filter(product => product.categoria === "farmacia"), container, "")
+        fillHeart(pharmacyProducts,favoritos,btnHeart)
+    }else{
+        createCards(pharmacyProducts, container, "")
+        fillHeart(pharmacyProducts,favoritos,btnHeart)
+    }
 })
 
 container.addEventListener("click", (e) => {
