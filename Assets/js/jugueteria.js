@@ -60,8 +60,17 @@ container.addEventListener("click", (e) => {
                    toys[i] = pressToy
                    localStorage.setItem("toys", JSON.stringify(toys)) // se actualiza la propiedad del localStorage, para que cuando recargues la pag no se vuelva a la info antigua
                    let unidades = document.getElementById(`unidades-${pressToy._id}`)
-                   unidades.textContent = `${pressToy.disponibles} unidades` // toma el id de <p> y le cambia el textContent
-               }
+                   unidades.textContent = `${pressToy.disponibles} Unidades` // toma el id de <p> y le cambia el textContent
+                   let stock = document.getElementById(`modalStock-${pressToy._id}`)
+                   if(pressToy.disponibles < 5){
+                    stock.classList.replace("bg-success", "bg-danger")
+                    stock.innerHTML = '<b>Ultimas Unidades</b>'
+                   }
+                   if(pressToy.disponibles === 0){
+                    stock.innerHTML = '<b>Sin Unidades</b>'
+                   }
+                console.log([stock])
+                }
             }
             
             products.push(pressToy)

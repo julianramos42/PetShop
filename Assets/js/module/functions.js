@@ -23,7 +23,25 @@ export function createCards(list, container, formulario) {
 }
 
 function writeCard(element) {
-  let color = element.disponibles < 5 ? "red" : "green";
+  let stock
+  if(element.disponibles === 0){
+    stock = '<p class="text-center stock bg-danger"><b>Sin Unidades</b></p>'
+  }else if(element.disponibles < 5){
+    stock = '<p class="text-center stock bg-danger"><b>Ultimas Unidades</b></p>'
+  }else{
+    stock = '<p class="text-center stock bg-success"><b>Unidades Disponibles</b></p>'
+  }
+  
+  let modalStock
+  if(element.disponibles === 0){
+    modalStock = `<p class="text-center stock bg-danger" id='modalStock-${element._id}'><b>Sin Unidades</b></p>`
+  }else if(element.disponibles < 5){
+    modalStock = `<p class="text-center stock bg-danger" id="modalStock-${element._id}"><b>Ultimas Unidades</b></p>`
+  }else{
+    modalStock = `<p class="text-center stock bg-success" id="modalStock-${element._id}"><b>Unidades Disponibles</b></p>`
+  }
+  
+
   return `
     <div class="card producto" id="card" style="width: 18rem;" data-bs-toggle="modal" data-bs-target="#card-${element._id}">
       <div class="card-img">
@@ -34,8 +52,8 @@ function writeCard(element) {
       </div>
       <div class="card-body">
         <div class="cont-stock d-flex flex-column">
+          ${stock}
           <p class="card-text"><b>Precio: $${element.precio}</b></p>
-          <p class=" ${color} text-center stock"><b>Stock</b></p>
           <h5 class="fw-bold">${element.producto}</h5>
         </div>
         <div class="cont-unidad d-flex justify-content-end align-items-end">
@@ -54,8 +72,8 @@ function writeCard(element) {
               </div>
               <div class="card-body">
                 <div class="cont-stock d-flex flex-column align-items-center">
+                  ${modalStock}
                   <p class="card-text"><b>Precio: $${element.precio}</b></p>
-                  <p class=" ${color} text-center stock"><b>Stock</b></p>
                   <h5 class="fw-bold text-center">${element.producto}</h5>
                 </div>
                 <div class="cont-unidad d-flex justify-content-center align-items-end">

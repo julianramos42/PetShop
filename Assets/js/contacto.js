@@ -83,15 +83,16 @@ modalCarrito.addEventListener("click", (e) => {
 })
 
 form.addEventListener("submit", (e) => {
+    console.log(form[0].value)
     e.preventDefault()
     Swal.fire({
         position: 'center',
         icon: 'success',
-        title: 'Mensaje Enviado',
+        title: `${form[0].value}, enviamos tu mensaje`,
         showConfirmButton: false,
         timer: 1500
       })
-    form.reset()
+    // form.reset()
 } );
 
 let slideTrack = document.getElementById("slide-track")
